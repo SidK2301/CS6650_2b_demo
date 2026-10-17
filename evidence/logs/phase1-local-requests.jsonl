@@ -1,0 +1,12 @@
+{"time": "2026-10-17T01:41:40.378083596Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 200, "duration_ms": 0.313625}
+{"time": "2026-10-17T01:41:40.379304513Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 200, "duration_ms": 0.03125}
+{"time": "2026-10-17T01:41:40.380504304Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 404, "duration_ms": 0.061209}
+{"time": "2026-10-17T01:41:40.381552638Z", "level": "INFO", "msg": "request", "endpoint": "unmatched", "method": "GET", "status": 404, "duration_ms": 0.014875}
+{"time": "2026-10-17T01:41:40.589477263Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 200, "duration_ms": 0.107459}
+{"time": "2026-10-17T01:41:40.591278221Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 200, "duration_ms": 0.032792}
+{"time": "2026-10-17T01:41:40.592817846Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 404, "duration_ms": 0.040083}
+{"time": "2026-10-17T01:41:40.594332179Z", "level": "INFO", "msg": "request", "endpoint": "unmatched", "method": "GET", "status": 404, "duration_ms": 0.043042}
+{"time": "2026-10-17T01:41:40.798986388Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 200, "duration_ms": 0.056667}
+{"time": "2026-10-17T01:41:40.800635679Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 200, "duration_ms": 0.030292}
+{"time": "2026-10-17T01:41:40.802409054Z", "level": "INFO", "msg": "request", "endpoint": "/products/:productId", "method": "GET", "status": 404, "duration_ms": 0.049584}
+{"time": "2026-10-17T01:41:40.804105138Z", "level": "INFO", "msg": "request", "endpoint": "unmatched", "method": "GET", "status": 404, "duration_ms": 0.031125}

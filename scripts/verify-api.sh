@@ -1,12 +1,18 @@
 #!/bin/sh
 set -eu
 BASE=${1:-http://localhost:8080}
+EXPECT_FAULTS=${EXPECT_FAULTS:-false}
+case "$EXPECT_FAULTS" in
+ true) GET_FAULT=500; POST_FAULT=500 ;;
+ false) GET_FAULT=200; POST_FAULT=204 ;;
+ *) echo 'EXPECT_FAULTS must be true or false' >&2; exit 2 ;;
+esac
 BODY='{"product_id":1,"sku":"ABC-123","manufacturer":"Acme","category_id":1,"weight":0,"some_other_id":1}'
 run() {
  label=$1; expected=$2; shift 2
  printf '\n%s (expected %s)\n' "$label" "$expected"
  output=$(mktemp)
- code=$(curl -sS -o "$output" -w '%{http_code}' "$@")
+ code=$(curl --connect-timeout 10 --max-time 30 -sS -o "$output" -w '%{http_code}' "$@")
  printf 'HTTP %s\n' "$code"
  cat "$output"
  printf '\n'
@@ -16,10 +22,10 @@ run() {
 }
 run 'GET existing' 200 "$BASE/products/1"
 run 'GET missing' 404 "$BASE/products/1001"
-run 'GET controlled fault' 500 -H 'X-Fault-Inject: 500' "$BASE/products/1"
+run "GET fault header (enabled=$EXPECT_FAULTS)" "$GET_FAULT" -H 'X-Fault-Inject: 500' "$BASE/products/1"
 run 'POST valid, zero weight' 204 -H 'Content-Type: application/json' -d "$BODY" "$BASE/products/1/details"
 run 'POST invalid JSON' 400 -H 'Content-Type: application/json' -d '{' "$BASE/products/1/details"
 run 'POST missing product' 404 -H 'Content-Type: application/json' -d '{"product_id":1001,"sku":"ABC","manufacturer":"Acme","category_id":1,"weight":0,"some_other_id":1}' "$BASE/products/1001/details"
-run 'POST controlled fault' 500 -H 'X-Fault-Inject: 500' -H 'Content-Type: application/json' -d "$BODY" "$BASE/products/1/details"
+run "POST fault header (enabled=$EXPECT_FAULTS)" "$POST_FAULT" -H 'X-Fault-Inject: 500' -H 'Content-Type: application/json' -d "$BODY" "$BASE/products/1/details"
 run 'GET confirms update' 200 "$BASE/products/1"
-printf '\nPASS: all seven endpoint/status combinations.\n'
+printf "\nPASS: response checks (EXPECT_FAULTS=%s).\n" "$EXPECT_FAULTS"

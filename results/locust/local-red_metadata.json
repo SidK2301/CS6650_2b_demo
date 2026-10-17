@@ -1,0 +1,26 @@
+{
+  "environment": "local native-architecture Compose app",
+  "idle_start_utc": "2026-10-17T02:58:38.196649+00:00",
+  "idle_seconds": 90,
+  "users": 50,
+  "spawn_rate": 10,
+  "warmup_seconds": 20,
+  "measurement_seconds": 180,
+  "workload": {
+    "valid_GET": 0.88,
+    "valid_POST": 0.1,
+    "intentional_404": 0.01,
+    "intentional_400": 0.01
+  },
+  "fault_injection": false,
+  "load_start_utc": "2026-10-17T03:00:08.202936+00:00",
+  "load_end_utc": "2026-10-17T03:03:28.202936+00:00",
+  "log_counts": {
+    "200": 85468,
+    "204": 9777,
+    "400": 966,
+    "404": 949
+  },
+  "log_total": 97160,
+  "log_non2xx_percent": 1.9709757101687937
+}

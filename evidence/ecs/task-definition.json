@@ -1,0 +1,37 @@
+{
+    "family": "cs6650-hw5-product-task",
+    "revision": 1,
+    "cpu": "256",
+    "memory": "512",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "container": {
+        "image": "723699460077.dkr.ecr.us-west-2.amazonaws.com/cs6650-hw5-product:5e160d30675f8fe4b497411a6d98b4ed046cab8a",
+        "environment": [
+            {
+                "name": "FAULT_INJECTION",
+                "value": "false"
+            }
+        ],
+        "healthCheck": {
+            "command": [
+                "CMD-SHELL",
+                "wget -qO- http://localhost:8080/health || exit 1"
+            ],
+            "interval": 30,
+            "timeout": 5,
+            "retries": 3,
+            "startPeriod": 10
+        },
+        "logs": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/cs6650-hw5-product",
+                "awslogs-region": "us-west-2",
+                "awslogs-stream-prefix": "ecs"
+            }
+        }
+    }
+}

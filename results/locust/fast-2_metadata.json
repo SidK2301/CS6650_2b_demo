@@ -1,0 +1,21 @@
+{
+  "client": "ProductFastHttpUser",
+  "users": 50,
+  "spawn_rate": 10,
+  "warmup_seconds": 20,
+  "measurement_seconds": 180,
+  "wait_seconds": [
+    0.05,
+    0.15
+  ],
+  "mix": {
+    "GET": 0.9,
+    "POST": 0.1
+  },
+  "target": "http://34.216.174.49:8080",
+  "locust_version": "2.46.6",
+  "workers": 1,
+  "started_utc": "2026-10-17T02:33:51.512306+00:00",
+  "finished_utc": "2026-10-17T02:37:12.146120+00:00",
+  "exit_code": 0
+}

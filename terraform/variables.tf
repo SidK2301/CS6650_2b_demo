@@ -7,12 +7,12 @@ variable "aws_region" {
 # ECR & ECS settings
 variable "ecr_repository_name" {
   type    = string
-  default = "ecr_service"
+  default = "cs6650-hw5-product"
 }
 
 variable "service_name" {
   type    = string
-  default = "CS6650L2"
+  default = "cs6650-hw5-product"
 }
 
 variable "container_port" {
@@ -29,4 +29,13 @@ variable "ecs_count" {
 variable "log_retention_days" {
   type    = number
   default = 7
+}
+
+variable "allowed_cidrs" {
+  type        = list(string)
+  description = "Public IPv4 CIDRs allowed to reach the API, including each load generator."
+  validation {
+    condition     = length(var.allowed_cidrs) > 0 && alltrue([for cidr in var.allowed_cidrs : can(cidrnetmask(cidr))])
+    error_message = "Supply at least one valid IPv4 CIDR."
+  }
 }

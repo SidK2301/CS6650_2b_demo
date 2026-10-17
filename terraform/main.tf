@@ -1,9 +1,15 @@
+locals {
+  src_hash  = sha1(join("", [for f in sort(fileset("${path.module}/../src", "**")) : filesha1("${path.module}/../src/${f}")]))
+  image_tag = "${module.ecr.repository_url}:${local.src_hash}"
+}
+
 # Wire together four focused modules: network, ecr, logging, ecs.
 
 module "network" {
   source         = "./modules/network"
   service_name   = var.service_name
   container_port = var.container_port
+  cidr_blocks    = var.allowed_cidrs
 }
 
 module "ecr" {
@@ -25,7 +31,7 @@ data "aws_iam_role" "lab_role" {
 module "ecs" {
   source             = "./modules/ecs"
   service_name       = var.service_name
-  image              = "${module.ecr.repository_url}:latest"
+  image              = local.image_tag
   container_port     = var.container_port
   subnet_ids         = module.network.subnet_ids
   security_group_ids = [module.network.security_group_id]
@@ -34,13 +40,14 @@ module "ecs" {
   log_group_name     = module.logging.log_group_name
   ecs_count          = var.ecs_count
   region             = var.aws_region
+  depends_on         = [docker_registry_image.app]
 }
 
 
 // Build & push the Go app image into ECR
 resource "docker_image" "app" {
-  # Use the URL from the ecr module, and tag it "latest"
-  name = "${module.ecr.repository_url}:latest"
+  # Tag the image with a hash of all source/build inputs.
+  name = local.image_tag
 
   build {
     # relative path from terraform/ → src/
@@ -51,6 +58,6 @@ resource "docker_image" "app" {
 }
 
 resource "docker_registry_image" "app" {
-  # this will push :latest → ECR
+  # Push the same content-tagged image referenced by the task definition.
   name = docker_image.app.name
 }

@@ -13,3 +13,6 @@ server
 coverage.out
 .DS_Store
 __pycache__/
+*.tfplan
+crash.log
+*.pyc

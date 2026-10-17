@@ -1,0 +1,18 @@
+{
+  "client": "ProductFastHttpUser",
+  "target": "http://34.216.174.49:8080",
+  "users_by_minute": [
+    50,
+    100,
+    200,
+    400,
+    700,
+    1000
+  ],
+  "spawn_rate": 50,
+  "wait_seconds": 0,
+  "warmup_seconds": 20,
+  "task_cpu_units": 256,
+  "task_memory_mib": 512,
+  "started_utc": "2026-10-17T02:44:18.631821+00:00"
+}

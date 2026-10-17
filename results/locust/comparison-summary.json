@@ -1,0 +1,56 @@
+{
+  "HttpUser": {
+    "rps": {
+      "median": 241.78956670260428,
+      "min": 241.67236778256483,
+      "max": 242.76027442884393
+    },
+    "p50_ms": {
+      "median": 95.0,
+      "min": 95.0,
+      "max": 96.0
+    },
+    "p95_ms": {
+      "median": 150.0,
+      "min": 150.0,
+      "max": 150.0
+    },
+    "generator_cpu_mean_percent": {
+      "median": 30.780555555555555,
+      "min": 29.915,
+      "max": 30.798333333333332
+    },
+    "generator_cpu_max_percent": {
+      "median": 35.9,
+      "min": 35.9,
+      "max": 54.9
+    }
+  },
+  "FastHttpUser": {
+    "rps": {
+      "median": 244.80399697170395,
+      "min": 244.47559493856636,
+      "max": 245.10172720919488
+    },
+    "p50_ms": {
+      "median": 93.0,
+      "min": 93.0,
+      "max": 93.0
+    },
+    "p95_ms": {
+      "median": 150.0,
+      "min": 150.0,
+      "max": 150.0
+    },
+    "generator_cpu_mean_percent": {
+      "median": 16.827222222222222,
+      "min": 15.671666666666667,
+      "max": 17.190555555555555
+    },
+    "generator_cpu_max_percent": {
+      "median": 20.9,
+      "min": 19.0,
+      "max": 26.9
+    }
+  }
+}

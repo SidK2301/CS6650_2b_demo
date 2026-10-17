@@ -20,9 +20,17 @@ resource "aws_ecs_task_definition" "this" {
   task_role_arn      = var.task_role_arn
 
   container_definitions = jsonencode([{
-    name      = "${var.service_name}-container"
-    image     = var.image
-    essential = true
+    name        = "${var.service_name}-container"
+    image       = var.image
+    essential   = true
+    environment = [{ name = "FAULT_INJECTION", value = "false" }]
+    healthCheck = {
+      command     = ["CMD-SHELL", "wget -qO- http://localhost:${var.container_port}/health || exit 1"]
+      interval    = 30
+      timeout     = 5
+      retries     = 3
+      startPeriod = 10
+    }
 
     portMappings = [{
       containerPort = var.container_port

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"net/http"
 	"net/http/httptest"
 	"strings"
 	"sync"
@@ -46,6 +47,11 @@ func TestContract(t *testing.T) {
 		fault                    bool
 	}{
 		{"get", "GET", "/products/1", "", 200, false},
+		{"get trailing slash", "GET", "/products/1/", "", 404, false},
+		{"post trailing slash", "POST", "/products/1/details/", good, 404, false},
+		{"oversize body", "POST", "/products/1/details", bodyWith("extra", strings.Repeat("x", 1<<20)), 400, false},
+		{"uppercase required key", "POST", "/products/1/details", strings.Replace(good, `"sku"`, `"SKU"`, 1), 400, false},
+		{"uppercase extra key cannot override", "POST", "/products/1/details", bodyWith("SKU", "ignored"), 204, false},
 		{"missing", "GET", "/products/1001", "", 404, false},
 		{"bad get", "GET", "/products/abc", "", 404, false},
 		{"zero get", "GET", "/products/0", "", 404, false},
@@ -145,9 +151,16 @@ func TestFaultObservability(t *testing.T) {
 			if testutil.ToFloat64(a.requests.WithLabelValues(route, method, "500")) != 1 || testutil.ToFloat64(a.errors.WithLabelValues(route, method, "500")) != 1 {
 				t.Fatal("500 metrics missing")
 			}
-			var line map[string]any
-			if err := json.Unmarshal(bytes.TrimSpace(logs.Bytes()), &line); err != nil || line["status"] != float64(500) {
-				t.Fatalf("invalid log: %s", logs.String())
+			lines := bytes.Split(bytes.TrimSpace(logs.Bytes()), []byte("\n"))
+			if len(lines) != 2 {
+				t.Fatalf("want diagnostic and request log, got %s", logs.String())
+			}
+			var diagnostic, line map[string]any
+			if err := json.Unmarshal(lines[0], &diagnostic); err != nil || diagnostic["level"] != "ERROR" || diagnostic["msg"] != "panic" || diagnostic["value"] == nil {
+				t.Fatalf("missing panic diagnostic: %s", logs.String())
+			}
+			if err := json.Unmarshal(lines[1], &line); err != nil || line["status"] != float64(500) || line["msg"] != "request" {
+				t.Fatalf("invalid request log: %s", logs.String())
 			}
 		})
 	}
@@ -192,4 +205,16 @@ func TestConcurrentReadsUpdates(t *testing.T) {
 		}(i)
 	}
 	wg.Wait()
+}
+
+func TestAbortHandlerPropagates(t *testing.T) {
+	a := newApplication(io.Discard, false)
+	r := a.router()
+	r.GET("/abort-test", func(c *gin.Context) { panic(http.ErrAbortHandler) })
+	defer func() {
+		if got := recover(); got != http.ErrAbortHandler {
+			t.Errorf("abort panic = %v", got)
+		}
+	}()
+	request(r, "GET", "/abort-test", "", false)
 }

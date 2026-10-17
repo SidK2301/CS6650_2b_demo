@@ -16,7 +16,10 @@ clarification; this is not full compliance with that global declaration.
 Both /products/... and /v1/products/... are supported. Extra JSON properties
 are accepted. Path and body product IDs must agree. Required integer presence
 is validated separately from value, so weight 0 is valid. Strings are measured
-in Unicode characters. Updates disappear on restart; separate tasks do not share data.
+in Unicode characters. Required JSON property names are case-sensitive. Bodies
+are limited to 1 MiB; oversized input returns 400. Trailing-slash routes return
+404 rather than redirecting. Invalid fields include an explanatory details value.
+Updates disappear on restart; separate tasks do not share data.
 
 | Endpoint | Status | Trigger |
 |---|---|---|
@@ -103,7 +106,9 @@ request_duration_seconds with buckets from 0.1 ms through 10 seconds. Unknown
 routes use unmatched. /metrics and /health are excluded from metrics but still
 produce one JSON request log each. slog writes request time, endpoint, method,
 status, and duration_ms to stdout. Metrics/logging wraps recovery, so recovered
-panics are recorded as 500. Dashboards describe server duration; Locust measures
+panics are recorded as 500. A recovered panic also emits a separate ERROR
+diagnostic with its value; http.ErrAbortHandler propagates to the HTTP server.
+Dashboards describe server duration; Locust measures
 end-to-end latency. They need not match.
 
 ## Evidence and remaining phases
@@ -134,3 +139,35 @@ A short Phase 1 JSON log excerpt is in evidence/logs/phase1-local-requests.jsonl
 the final Part V excerpt must come from the later measured local Locust run.
 
 Phase 2 has not started.
+
+## Deployment architecture preflight
+
+Terraform builds linux/amd64 and the task runtime explicitly selects Linux X86_64.
+The matching local image is built with:
+
+```sh
+docker build --platform linux/amd64 -t hw5-product:amd64 ./src
+```
+
+On Apple Silicon this image runs under emulation. Its timing is not performance
+evidence. The local monitoring stack uses the host's native architecture.
+
+Pre-deployment checks passed: expanded race tests and all seven HTTP response
+cases. The amd64 image reported healthy with the command below; the temporary
+container was removed afterward. No host port is needed because the check runs
+inside the container.
+
+```sh
+docker run -d --name hw5-health --platform linux/amd64 \
+  --health-cmd 'wget -qO- http://localhost:8080/health || exit 1' \
+  --health-interval 5s hw5-product:amd64
+# Allow the first health check to finish, then inspect:
+docker inspect --format '{{.State.Health.Status}}' hw5-health
+docker rm -f hw5-health
+```
+
+Terraform validation passed using AWS provider 6.7.0 and Docker provider 2.25.0.
+The Docker provider's build platform setting is documented in its
+[versioned resource documentation](https://github.com/kreuzwerker/terraform-provider-docker/blob/v2.25.0/docs/resources/image.md).
+ECS health-check configuration, deployment fault settings, image tagging, and
+push ordering remain Phase 2 deployment work.

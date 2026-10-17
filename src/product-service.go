@@ -26,15 +26,6 @@ type Product struct {
 	SomeOtherID  int32  `json:"some_other_id"`
 }
 
-type productInput struct {
-	ProductID    *int32  `json:"product_id"`
-	SKU          *string `json:"sku"`
-	Manufacturer *string `json:"manufacturer"`
-	CategoryID   *int32  `json:"category_id"`
-	Weight       *int32  `json:"weight"`
-	SomeOtherID  *int32  `json:"some_other_id"`
-}
-
 type apiError struct {
 	Error   string `json:"error"`
 	Message string `json:"message"`
@@ -55,7 +46,7 @@ type application struct {
 func newApplication(logOutput io.Writer, faults bool) *application {
 	a := &application{products: make(map[int32]Product), registry: prometheus.NewRegistry(), logger: slog.New(slog.NewJSONHandler(logOutput, nil)), faults: faults}
 	for id := int32(1); id <= 1000; id++ {
-		a.products[id] = Product{id, fmt.Sprintf("SKU-%04d", id), "HW5 Manufacturer", 1, 100, 1}
+		a.products[id] = Product{ProductID: id, SKU: fmt.Sprintf("SKU-%04d", id), Manufacturer: "HW5 Manufacturer", CategoryID: 1, Weight: 100, SomeOtherID: 1}
 	}
 	labels := []string{"route", "method", "status"}
 	a.requests = prometheus.NewCounterVec(prometheus.CounterOpts{Name: "requests_total", Help: "Business HTTP requests."}, labels)
@@ -67,6 +58,10 @@ func newApplication(logOutput io.Writer, faults bool) *application {
 
 func fail(c *gin.Context, status int, code, message string) {
 	c.AbortWithStatusJSON(status, apiError{Error: code, Message: message})
+}
+
+func invalidField(c *gin.Context, details string) {
+	c.AbortWithStatusJSON(400, apiError{Error: "INVALID_INPUT", Message: "Invalid product data", Details: details})
 }
 
 func (a *application) observe() gin.HandlerFunc {
@@ -93,10 +88,15 @@ func (a *application) observe() gin.HandlerFunc {
 
 func (a *application) router() *gin.Engine {
 	r := gin.New()
+	r.RedirectTrailingSlash = false
 	r.Use(a.observe())
 	r.Use(func(c *gin.Context) {
 		defer func() {
 			if recovered := recover(); recovered != nil {
+				if recovered == http.ErrAbortHandler {
+					panic(recovered)
+				}
+				a.logger.Error("panic", "value", recovered, "endpoint", c.FullPath())
 				fail(c, 500, "INTERNAL_ERROR", "Internal server error")
 			}
 		}()
@@ -147,26 +147,58 @@ func (a *application) updateProduct(c *gin.Context) {
 		fail(c, 400, "INVALID_INPUT", "Product ID must be a positive int32")
 		return
 	}
-	var in productInput
+	c.Request.Body = http.MaxBytesReader(c.Writer, c.Request.Body, 1<<20)
+	var fields map[string]json.RawMessage
 	decoder := json.NewDecoder(c.Request.Body)
-	if err := decoder.Decode(&in); err != nil {
+	if err := decoder.Decode(&fields); err != nil || fields == nil {
 		fail(c, 400, "INVALID_INPUT", "Invalid product JSON")
 		return
 	}
 	var extra any
 	if err := decoder.Decode(&extra); err != io.EOF {
-		fail(c, 400, "INVALID_INPUT", "Expected one JSON object")
+		fail(c, 400, "INVALID_INPUT", "Expected one JSON object within 1 MiB")
 		return
 	}
-	if in.ProductID == nil || in.SKU == nil || in.Manufacturer == nil || in.CategoryID == nil || in.Weight == nil || in.SomeOtherID == nil {
-		fail(c, 400, "INVALID_INPUT", "All Product fields are required and cannot be null")
+	var p Product
+	// Decode exact keys independently: unknown properties cannot override them
+	// through encoding/json's case-insensitive struct-field matching.
+	for _, field := range []struct {
+		name   string
+		target any
+	}{
+		{"product_id", &p.ProductID}, {"sku", &p.SKU},
+		{"manufacturer", &p.Manufacturer}, {"category_id", &p.CategoryID},
+		{"weight", &p.Weight}, {"some_other_id", &p.SomeOtherID},
+	} {
+		raw, exists := fields[field.name]
+		if !exists || string(raw) == "null" {
+			invalidField(c, field.name+" is required and cannot be null")
+			return
+		}
+		if err := json.Unmarshal(raw, field.target); err != nil {
+			invalidField(c, field.name+" has an invalid type or is outside int32 range")
+			return
+		}
+	}
+	var detail string
+	switch {
+	case p.ProductID != id:
+		detail = "product_id must match the positive path ID"
+	case p.CategoryID < 1:
+		detail = "category_id must be >= 1"
+	case p.Weight < 0:
+		detail = "weight must be >= 0"
+	case p.SomeOtherID < 1:
+		detail = "some_other_id must be >= 1"
+	case utf8.RuneCountInString(p.SKU) < 1 || utf8.RuneCountInString(p.SKU) > 100:
+		detail = "sku must contain 1–100 characters"
+	case utf8.RuneCountInString(p.Manufacturer) < 1 || utf8.RuneCountInString(p.Manufacturer) > 200:
+		detail = "manufacturer must contain 1–200 characters"
+	}
+	if detail != "" {
+		invalidField(c, detail)
 		return
 	}
-	if *in.ProductID != id || *in.CategoryID < 1 || *in.Weight < 0 || *in.SomeOtherID < 1 || utf8.RuneCountInString(*in.SKU) < 1 || utf8.RuneCountInString(*in.SKU) > 100 || utf8.RuneCountInString(*in.Manufacturer) < 1 || utf8.RuneCountInString(*in.Manufacturer) > 200 {
-		fail(c, 400, "INVALID_INPUT", "Product fields violate the schema or path ID")
-		return
-	}
-	p := Product{*in.ProductID, *in.SKU, *in.Manufacturer, *in.CategoryID, *in.Weight, *in.SomeOtherID}
 	a.mu.Lock()
 	_, found := a.products[id]
 	if found {

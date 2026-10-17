@@ -385,3 +385,15 @@ Its 03:00 UTC timestamps match 11:00 PM EDT on the dashboard. The run settings,
 time window, and log totals are in results/locust/local-red_metadata.json.
 Reproduce by running `python3 scripts/prepare-local-observability.py` with the
 Compose stack up and port 8089 free; it records an idle baseline before load.
+
+## Phase 2 completion and cleanup
+
+All six comparison runs, the ECS stress run, and the local RED run completed.
+Their CSVs, analysis, matching logs, and screenshots are saved in this repository.
+Terraform cleanup removed all eight managed deployment resources. The Terraform
+state is empty and the ECS cluster is INACTIVE with zero running tasks. The old
+public API address is no longer a live endpoint; redeploy and rediscover the task
+IP for a live demo. The local Compose monitoring stack remains available.
+
+Authentication clarification, final submission review, and interview preparation
+remain separate follow-up work.

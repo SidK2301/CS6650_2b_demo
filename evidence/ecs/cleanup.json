@@ -1,0 +1,7 @@
+{
+  "verified_utc": "2026-10-17T03:12:06.186767+00:00",
+  "terraform_resources_destroyed": 8,
+  "terraform_state_resources": 0,
+  "ecs_cluster_status": "INACTIVE",
+  "ecs_running_tasks": 0
+}

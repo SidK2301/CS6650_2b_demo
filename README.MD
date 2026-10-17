@@ -12,7 +12,6 @@ These interpretations are assumptions pending instructor clarification.
 The global authentication declaration has no credential configuration in the
 assignment. Authentication is omitted as a course-scope assumption pending
 clarification; this is not full compliance with that global declaration.
-The student should ask about it in the hw5 Piazza folder.
 
 Both /products/... and /v1/products/... are supported. Extra JSON properties
 are accepted. Path and body product IDs must agree. Required integer presence
@@ -40,7 +39,7 @@ Errors always contain error and message; details is optional.
 - No ALB and no health check are configured in the starter.
 - awslogs sends stdout to /ecs/<service_name>, retention seven days.
 - Phase 2 must explicitly disable fault injection in the task definition and
-  configure a health check. Review image-push ordering and deployment updates.
+  configure a health check. Image-push ordering and deployment updates are pending review.
 
 ## Local Go
 
@@ -64,7 +63,7 @@ FAULT_INJECTION is exactly true; otherwise the header is ignored.
 
 ```sh
 docker build -t hw5-product:local ./src
-docker run --rm --name hw5-product -p 8080:8080 -e FAULT_INJECTION=true hw5-product:local
+docker run --rm --name hw5-product -p 127.0.0.1:8080:8080 -e FAULT_INJECTION=true hw5-product:local
 ./scripts/verify-api.sh http://localhost:8080
 ```
 
@@ -78,17 +77,22 @@ docker compose up -d --build
 ```
 
 App: http://localhost:8080; Prometheus: http://localhost:9090;
-Grafana: http://localhost:3000 (local demo login admin / hw5-local-only).
+Grafana: http://localhost:3000 (local-only demo login admin / hw5-local-only;
+all three published ports bind to 127.0.0.1).
 Open the provisioned HW5 RED dashboard. The dashboard JSON is committed under
 monitoring/grafana/dashboards. This stack is local only.
 
 ```sh
+# Enable controlled 500s only for the response-code demonstration.
+FAULT_INJECTION=true docker compose up -d app
 ./scripts/verify-api.sh http://localhost:8080
+# Restore normal operation before measured runs.
+FAULT_INJECTION=false docker compose up -d app
 docker compose logs --no-log-prefix app
 ```
 
-Compose enables fault injection for the response-code demonstration. For normal
-load tests, start with `FAULT_INJECTION=false docker compose up -d`.
+Compose disables fault injection by default. The explicit true override above
+is only for the response-code demonstration.
 Prometheus scrapes the Compose service name app:8080, not localhost.
 Stop with `docker compose down`.
 
@@ -104,13 +108,9 @@ end-to-end latency. They need not match.
 
 ## Evidence and remaining phases
 
-The student takes every screenshot. Pause at screenshot checkpoints; do not
-capture screenshots automatically. Phase 1 evidence: native/Docker response
-matrix and local RED dashboard. Part IV ECS experiments and the matching Part V
-local load/dashboard/log evidence are pending. Deployment instructions, results,
-and interview notes will be completed after those phases. Do not claim results
-before running experiments. Locust expected-response failures and RED non-2xx
-errors will be explained alongside those results.
+Phase 1 evidence includes native/Docker response verification and a local RED
+dashboard. ECS experiments, measured local Locust evidence, deployment
+instructions, and interview notes are pending.
 
 ## Phase 1 verification
 
@@ -133,5 +133,4 @@ performance evidence or the final Part V idle-versus-loaded experiment.
 A short Phase 1 JSON log excerpt is in evidence/logs/phase1-local-requests.jsonl;
 the final Part V excerpt must come from the later measured local Locust run.
 
-Piazza authentication question remains a student action; posting has not been
-performed by this project. Phase 2 has not started.
+Phase 2 has not started.

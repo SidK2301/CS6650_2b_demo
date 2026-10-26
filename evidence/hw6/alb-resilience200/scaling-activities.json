@@ -1,0 +1,28 @@
+{
+  "ScalingActivities": [
+    {
+      "ActivityId": "172c50b6-6a03-4452-9267-d5558c80cf35",
+      "ServiceNamespace": "ecs",
+      "ResourceId": "service/cs6650-hw5-product-cluster/cs6650-hw5-product",
+      "ScalableDimension": "ecs:service:DesiredCount",
+      "Description": "Setting desired count to 3.",
+      "Cause": "monitor alarm TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmHigh-21c93025-c279-4548-a312-632d729d30ef in state ALARM triggered policy cs6650-hw5-product-cpu",
+      "StartTime": "2026-10-23T02:21:40.698000-04:00",
+      "EndTime": "2026-10-23T02:22:45.108000-04:00",
+      "StatusCode": "Successful",
+      "StatusMessage": "Successfully set desired count to 3. Change successfully fulfilled by ecs."
+    },
+    {
+      "ActivityId": "2159be74-2d2d-41bb-b90f-850e21c53983",
+      "ServiceNamespace": "ecs",
+      "ResourceId": "service/cs6650-hw5-product-cluster/cs6650-hw5-product",
+      "ScalableDimension": "ecs:service:DesiredCount",
+      "Description": "Setting desired count to 2.",
+      "Cause": "minimum capacity was set to 2",
+      "StartTime": "2026-10-23T02:01:35.529000-04:00",
+      "EndTime": "2026-10-23T02:02:11.475000-04:00",
+      "StatusCode": "Successful",
+      "StatusMessage": "Successfully set desired count to 2. Change successfully fulfilled by ecs."
+    }
+  ]
+}

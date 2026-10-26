@@ -1,0 +1,24 @@
+{
+  "status": "application_destroyed_ecr_retained",
+  "reason": "ECS access explicitly denied by voc-cancel-cred identity policy",
+  "completed": [
+    "search implementation and verification",
+    "single-task required tests",
+    "spike and saturation exploration",
+    "ALB core comparison",
+    "observed CPU-based scale-out",
+    "single- and multiple-task resilience",
+    "all-unhealthy/fail-open experiment"
+  ],
+  "remaining": [
+    "gradual-ramp execution",
+    "CPU target/capacity/cooldown trials",
+    "final report and artifact validation",
+    "AWS cleanup verification"
+  ],
+  "health_path_restored": true,
+  "aws_resource_cleanup_verified": false,
+  "cleanup_verified_utc": "2026-10-23T09:59:13.346805+00:00",
+  "local_containers": "all_stopped_data_preserved",
+  "cleanup_evidence": "cleanup-verification.json"
+}

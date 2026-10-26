@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 	"unicode/utf8"
@@ -33,20 +34,26 @@ type apiError struct {
 }
 
 type application struct {
-	mu       sync.RWMutex
-	products map[int32]Product
-	registry *prometheus.Registry
-	requests *prometheus.CounterVec
-	errors   *prometheus.CounterVec
-	duration *prometheus.HistogramVec
-	logger   *slog.Logger
-	faults   bool
+	products   sync.Map         // int32 product IDs mapped to immutable Product values.
+	names      map[int32]string // Generated names are immutable after startup; not part of the Product API schema.
+	categories map[int32]string
+	registry   *prometheus.Registry
+	requests   *prometheus.CounterVec
+	errors     *prometheus.CounterVec
+	duration   *prometheus.HistogramVec
+	logger     *slog.Logger
+	faults     bool
 }
 
 func newApplication(logOutput io.Writer, faults bool) *application {
-	a := &application{products: make(map[int32]Product), registry: prometheus.NewRegistry(), logger: slog.New(slog.NewJSONHandler(logOutput, nil)), faults: faults}
-	for id := int32(1); id <= 1000; id++ {
-		a.products[id] = Product{ProductID: id, SKU: fmt.Sprintf("SKU-%04d", id), Manufacturer: "HW5 Manufacturer", CategoryID: 1, Weight: 100, SomeOtherID: 1}
+	a := &application{names: make(map[int32]string, 100000), categories: map[int32]string{1: "Electronics", 2: "Books", 3: "Home", 4: "Sports", 5: "Clothing"}, registry: prometheus.NewRegistry(), logger: slog.New(slog.NewJSONHandler(logOutput, nil)), faults: faults}
+	brands := []string{"Alpha", "Beta", "Gamma", "Delta", "Omega"}
+	items := []string{"Camera", "Notebook", "Lamp", "Ball", "Jacket"}
+	for id := int32(1); id <= 100000; id++ {
+		index := int(id - 1)
+		brand := brands[(index/len(items))%len(brands)]
+		a.names[id] = fmt.Sprintf("%s %s %d", items[index%len(items)], brand, id)
+		a.products.Store(id, Product{ProductID: id, SKU: fmt.Sprintf("SKU-%06d", id), Manufacturer: brand, CategoryID: int32(index%len(a.categories)) + 1, Weight: 100, SomeOtherID: 1})
 	}
 	labels := []string{"route", "method", "status"}
 	a.requests = prometheus.NewCounterVec(prometheus.CounterOpts{Name: "requests_total", Help: "Business HTTP requests."}, labels)
@@ -82,7 +89,11 @@ func (a *application) observe() gin.HandlerFunc {
 			}
 			a.duration.WithLabelValues(labels...).Observe(elapsed.Seconds())
 		}
-		a.logger.Info("request", "endpoint", route, "method", c.Request.Method, "status", status, "duration_ms", float64(elapsed)/float64(time.Millisecond))
+		attributes := []any{"endpoint", route, "method", c.Request.Method, "status", status, "duration_ms", float64(elapsed) / float64(time.Millisecond)}
+		if checked, exists := c.Get("checked"); exists {
+			attributes = append(attributes, "checked", checked)
+		}
+		a.logger.Info("request", attributes...)
 	}
 }
 
@@ -105,11 +116,43 @@ func (a *application) router() *gin.Engine {
 	r.GET("/health", func(c *gin.Context) { c.JSON(200, gin.H{"status": "ok"}) })
 	r.GET("/metrics", gin.WrapH(promhttp.HandlerFor(a.registry, promhttp.HandlerOpts{})))
 	for _, prefix := range []string{"", "/v1"} {
+		r.GET(prefix+"/products/search", a.searchProducts)
 		r.GET(prefix+"/products/:productId", a.getProduct)
 		r.POST(prefix+"/products/:productId/details", a.updateProduct)
 	}
 	r.NoRoute(func(c *gin.Context) { fail(c, 404, "NOT_FOUND", "Route not found") })
 	return r
+}
+
+type searchResponse struct {
+	Products   []Product `json:"products"`
+	TotalFound int       `json:"total_found"`
+	SearchTime string    `json:"search_time"`
+}
+
+func (a *application) searchProducts(c *gin.Context) {
+	a.inject(c)
+	started := time.Now()
+	query, exists := c.GetQuery("q")
+	if !exists || !utf8.ValidString(query) || utf8.RuneCountInString(query) < 1 || utf8.RuneCountInString(query) > 100 {
+		fail(c, 400, "INVALID_INPUT", "q must contain 1–100 characters")
+		return
+	}
+	query = strings.ToLower(query)
+	products := make([]Product, 0, 20)
+	checked := 0
+	a.products.Range(func(key, value any) bool {
+		p := value.(Product)
+		checked++
+		matches := strings.Contains(strings.ToLower(a.names[key.(int32)]), query) || strings.Contains(strings.ToLower(a.categories[p.CategoryID]), query)
+		if matches && len(products) < 20 {
+			products = append(products, p)
+		}
+		// Bound examined products, independent of how many match or are returned.
+		return checked < 100
+	})
+	c.Set("checked", checked)
+	c.JSON(200, searchResponse{Products: products, TotalFound: len(products), SearchTime: time.Since(started).String()})
 }
 
 func parseID(c *gin.Context) (int32, bool) {
@@ -130,9 +173,7 @@ func (a *application) getProduct(c *gin.Context) {
 		fail(c, 404, "NOT_FOUND", "Product not found")
 		return
 	}
-	a.mu.RLock()
-	p, found := a.products[id]
-	a.mu.RUnlock()
+	p, found := a.products.Load(id)
 	if !found {
 		fail(c, 404, "NOT_FOUND", "Product not found")
 		return
@@ -199,12 +240,19 @@ func (a *application) updateProduct(c *gin.Context) {
 		invalidField(c, detail)
 		return
 	}
-	a.mu.Lock()
-	_, found := a.products[id]
-	if found {
-		a.products[id] = p
+	// Replace only an existing value, retrying if another update wins first.
+	// CompareAndSwap cannot insert an unknown ID, even under concurrent POSTs.
+	found := false
+	for {
+		previous, exists := a.products.Load(id)
+		if !exists {
+			break
+		}
+		if a.products.CompareAndSwap(id, previous, p) {
+			found = true
+			break
+		}
 	}
-	a.mu.Unlock()
 	if !found {
 		fail(c, 404, "NOT_FOUND", "Product not found")
 		return

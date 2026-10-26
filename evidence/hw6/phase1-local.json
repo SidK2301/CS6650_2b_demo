@@ -1,0 +1,370 @@
+{
+  "scope": "Local Docker, sequential single user; not AWS performance evidence",
+  "start_utc": "2026-10-23T04:58:51.552005+00:00",
+  "end_utc": "2026-10-23T04:59:22.051318+00:00",
+  "requests": 60,
+  "median_client_ms": 3.8326244975905865,
+  "max_client_ms": 5.929167004069313,
+  "samples": [
+    {
+      "query": "Electro",
+      "client_ms": 1.14854200364789,
+      "total_found": 20,
+      "search_time": "104.792\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 4.0103329956764355,
+      "total_found": 17,
+      "search_time": "287.167\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 2.80166700395057,
+      "total_found": 20,
+      "search_time": "179.292\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 4.004624999652151,
+      "total_found": 0,
+      "search_time": "281.292\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 2.3132499991334043,
+      "total_found": 20,
+      "search_time": "156.166\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 4.075459000887349,
+      "total_found": 17,
+      "search_time": "314.417\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.9896669986774214,
+      "total_found": 20,
+      "search_time": "316.416\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.0881249986123294,
+      "total_found": 0,
+      "search_time": "162.208\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 4.027625000162516,
+      "total_found": 20,
+      "search_time": "301.083\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.9338330025202595,
+      "total_found": 17,
+      "search_time": "290.875\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.453541998169385,
+      "total_found": 20,
+      "search_time": "263.458\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.866209000989329,
+      "total_found": 0,
+      "search_time": "274.834\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 3.743708999536466,
+      "total_found": 20,
+      "search_time": "246.5\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 4.253500002960209,
+      "total_found": 17,
+      "search_time": "295.667\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.2886670014704578,
+      "total_found": 20,
+      "search_time": "351.375\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.8610830015386455,
+      "total_found": 0,
+      "search_time": "307.084\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 3.9207920053740963,
+      "total_found": 20,
+      "search_time": "315.708\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.4595420002005994,
+      "total_found": 17,
+      "search_time": "286.958\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.4519160035415553,
+      "total_found": 20,
+      "search_time": "315.709\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.501541999867186,
+      "total_found": 0,
+      "search_time": "272.125\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 4.783791002409998,
+      "total_found": 20,
+      "search_time": "337.75\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 4.046165995532647,
+      "total_found": 17,
+      "search_time": "320.958\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 4.378999998152722,
+      "total_found": 20,
+      "search_time": "275.875\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 4.008750001958106,
+      "total_found": 0,
+      "search_time": "281.167\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 3.8225409953156486,
+      "total_found": 20,
+      "search_time": "295.834\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.7492499977815896,
+      "total_found": 17,
+      "search_time": "294\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.988832999311853,
+      "total_found": 20,
+      "search_time": "274.709\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 4.021374996227678,
+      "total_found": 0,
+      "search_time": "291.792\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 4.036708996864036,
+      "total_found": 20,
+      "search_time": "292.458\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.9274159935303032,
+      "total_found": 17,
+      "search_time": "296.375\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 4.829333003726788,
+      "total_found": 20,
+      "search_time": "278.042\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 2.9649159987457097,
+      "total_found": 0,
+      "search_time": "234.667\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 3.4945840016007423,
+      "total_found": 20,
+      "search_time": "291.5\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.7096660016686656,
+      "total_found": 17,
+      "search_time": "288\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 4.098167002666742,
+      "total_found": 20,
+      "search_time": "275.708\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 1.6976659971987829,
+      "total_found": 0,
+      "search_time": "139.458\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 4.0637089987285435,
+      "total_found": 20,
+      "search_time": "284.25\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.2874169992282987,
+      "total_found": 17,
+      "search_time": "284.458\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 2.875542006222531,
+      "total_found": 20,
+      "search_time": "223.375\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 4.324832996644545,
+      "total_found": 0,
+      "search_time": "336.917\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 3.904500001226552,
+      "total_found": 20,
+      "search_time": "318.875\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 5.929167004069313,
+      "total_found": 17,
+      "search_time": "316.875\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.8427079998655245,
+      "total_found": 20,
+      "search_time": "262.834\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.428125004575122,
+      "total_found": 0,
+      "search_time": "301.75\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 5.573750000621658,
+      "total_found": 20,
+      "search_time": "245.75\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 4.083875006472226,
+      "total_found": 17,
+      "search_time": "259\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 2.1820830006618053,
+      "total_found": 20,
+      "search_time": "201.541\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.635167005995754,
+      "total_found": 0,
+      "search_time": "401.417\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 2.2786249974160455,
+      "total_found": 20,
+      "search_time": "160.625\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.488749993266538,
+      "total_found": 17,
+      "search_time": "326.667\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.5797500022454187,
+      "total_found": 20,
+      "search_time": "271.625\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.1382090019178577,
+      "total_found": 0,
+      "search_time": "236.458\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 3.4153750020777807,
+      "total_found": 20,
+      "search_time": "250.625\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 4.291124998417217,
+      "total_found": 17,
+      "search_time": "313.5\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 3.0511250006384216,
+      "total_found": 20,
+      "search_time": "199.708\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 3.326041995023843,
+      "total_found": 0,
+      "search_time": "241.292\u00b5s"
+    },
+    {
+      "query": "Electro",
+      "client_ms": 2.360999998927582,
+      "total_found": 20,
+      "search_time": "168.583\u00b5s"
+    },
+    {
+      "query": "aLpHa",
+      "client_ms": 3.9072080035111867,
+      "total_found": 17,
+      "search_time": "332.375\u00b5s"
+    },
+    {
+      "query": "Camera",
+      "client_ms": 4.238249995978549,
+      "total_found": 20,
+      "search_time": "294.209\u00b5s"
+    },
+    {
+      "query": "not-a-product-xyz",
+      "client_ms": 1.7934589996002614,
+      "total_found": 0,
+      "search_time": "110.792\u00b5s"
+    }
+  ]
+}

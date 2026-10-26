@@ -1,0 +1,80 @@
+[
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/23209c72a39c4b4db426281b4dd3e7c1",
+    "stopCode": "UserInitiated",
+    "stoppedReason": "HW6 controlled 2-task resilience experiment",
+    "stoppedAt": "2026-10-23T02:35:26.860000-04:00",
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": 143,
+        "reason": null
+      }
+    ]
+  },
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/2f377d38014642c6b7dd38548b5235af",
+    "stopCode": "ServiceSchedulerInitiated",
+    "stoppedReason": "Task failed ELB health checks in (target-group arn:aws:elasticloadbalancing:us-west-2:723699460077:targetgroup/cs6650-hw5-product-tg/92f6f411d8721ee0)",
+    "stoppedAt": null,
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": null,
+        "reason": null
+      }
+    ]
+  },
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/435c38463fff46c780c075a9bc5c63c5",
+    "stopCode": "UserInitiated",
+    "stoppedReason": "HW6 controlled 1-task resilience experiment",
+    "stoppedAt": "2026-10-23T02:33:22.905000-04:00",
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": 143,
+        "reason": null
+      }
+    ]
+  },
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/66a2e4508df04a6884b806a93d2f457b",
+    "stopCode": "UserInitiated",
+    "stoppedReason": "HW6 controlled 2-task resilience experiment",
+    "stoppedAt": "2026-10-23T02:35:26.801000-04:00",
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": 143,
+        "reason": null
+      }
+    ]
+  },
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/bb77a9552533476ebadb358d54becc89",
+    "stopCode": "ServiceSchedulerInitiated",
+    "stoppedReason": "Task failed ELB health checks in (target-group arn:aws:elasticloadbalancing:us-west-2:723699460077:targetgroup/cs6650-hw5-product-tg/92f6f411d8721ee0)",
+    "stoppedAt": null,
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": 143,
+        "reason": null
+      }
+    ]
+  },
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/f81f4614f5dd4ba99e241d3ac18c603f",
+    "stopCode": "ServiceSchedulerInitiated",
+    "stoppedReason": "Task failed ELB health checks in (target-group arn:aws:elasticloadbalancing:us-west-2:723699460077:targetgroup/cs6650-hw5-product-tg/92f6f411d8721ee0)",
+    "stoppedAt": null,
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": null,
+        "reason": null
+      }
+    ]
+  }
+]

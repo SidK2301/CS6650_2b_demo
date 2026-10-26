@@ -14,3 +14,10 @@ output "aws_region" {
 output "image_tag" {
   value = local.image_tag
 }
+
+output "alb_dns" {
+  value = module.network.alb_dns
+}
+output "target_group_arn" {
+  value = module.network.target_group_arn
+}

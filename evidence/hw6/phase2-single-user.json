@@ -1,0 +1,58 @@
+{
+  "host": "http://44.243.142.93:8080",
+  "scope": "AWS sequential single-user verification from laptop",
+  "median_client_ms": 200.21004199952586,
+  "max_client_ms": 329.0971249953145,
+  "samples": [
+    {
+      "client_ms": 177.66441700223368,
+      "search_time": "165.591\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 203.6671669993666,
+      "search_time": "144.781\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 236.35091700271005,
+      "search_time": "152.256\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 196.7529169996851,
+      "search_time": "144.937\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 180.35416700149653,
+      "search_time": "145.552\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 242.96804099867586,
+      "search_time": "152.751\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 195.09145800111583,
+      "search_time": "145.27\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 329.0971249953145,
+      "search_time": "211.387\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 188.9731249975739,
+      "search_time": "168.786\u00b5s",
+      "total_found": 16
+    },
+    {
+      "client_ms": 239.7649159975117,
+      "search_time": "167.296\u00b5s",
+      "total_found": 16
+    }
+  ]
+}

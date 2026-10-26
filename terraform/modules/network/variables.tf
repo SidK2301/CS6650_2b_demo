@@ -11,3 +11,8 @@ variable "cidr_blocks" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
+
+variable "enable_alb" {
+  type    = bool
+  default = false
+}

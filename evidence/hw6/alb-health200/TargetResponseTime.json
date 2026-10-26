@@ -1,0 +1,25 @@
+{
+  "Label": "TargetResponseTime",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-23T02:40:00-04:00",
+      "Average": 0.004406839150830881,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:41:00-04:00",
+      "Average": 0.005159136546459185,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:42:00-04:00",
+      "Average": 0.010604708559971211,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:43:00-04:00",
+      "Average": 0.005620639817554483,
+      "Unit": "Seconds"
+    }
+  ]
+}

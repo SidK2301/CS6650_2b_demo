@@ -1,0 +1,75 @@
+{
+  "Label": "TargetResponseTime",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-23T02:15:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.1036504741753655
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:16:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.10837139115951747
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:17:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.11131268520992292
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:18:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.10301811972303931
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:19:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.10120551858250386
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:20:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.10282380914443225
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:21:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.1058243661843551
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:22:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.06775444456058652
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:23:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.024540292654763363
+      }
+    },
+    {
+      "Timestamp": "2026-10-23T02:24:00-04:00",
+      "Unit": "Seconds",
+      "ExtendedStatistics": {
+        "p95": 0.02420424809376895
+      }
+    }
+  ]
+}

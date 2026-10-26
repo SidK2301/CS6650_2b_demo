@@ -1,0 +1,18 @@
+[2026-10-23 09:31:08,464] 55d06633b951/INFO/locust.main: Starting Locust 2.46.6
+[2026-10-23 09:31:08,466] 55d06633b951/INFO/locust.runners: Shape test starting.
+[2026-10-23 09:31:08,467] 55d06633b951/INFO/locust.runners: Shape worker starting
+[2026-10-23 09:31:08,467] 55d06633b951/INFO/locust.runners: Shape test updating to 20 users at 20.00 spawn rate
+[2026-10-23 09:31:08,468] 55d06633b951/INFO/locust.runners: Ramping to 20 users at a rate of 20.00 per second
+[2026-10-23 09:31:08,469] 55d06633b951/INFO/locust.runners: All users spawned: {"SearchUser": 20} (20 total users)
+[2026-10-23 09:32:08,677] 55d06633b951/INFO/locust.runners: Shape test updating to 50 users at 20.00 spawn rate
+[2026-10-23 09:32:08,681] 55d06633b951/INFO/locust.runners: Ramping to 50 users at a rate of 20.00 per second
+[2026-10-23 09:32:09,682] 55d06633b951/INFO/locust.runners: All users spawned: {"SearchUser": 50} (50 total users)
+[2026-10-23 09:33:09,134] 55d06633b951/INFO/locust.runners: Shape test updating to 100 users at 20.00 spawn rate
+[2026-10-23 09:33:09,138] 55d06633b951/INFO/locust.runners: Ramping to 100 users at a rate of 20.00 per second
+[2026-10-23 09:33:11,140] 55d06633b951/INFO/locust.runners: All users spawned: {"SearchUser": 100} (100 total users)
+[2026-10-23 09:34:09,332] 55d06633b951/INFO/locust.runners: Shape test updating to 200 users at 20.00 spawn rate
+[2026-10-23 09:34:09,335] 55d06633b951/INFO/locust.runners: Ramping to 200 users at a rate of 20.00 per second
+[2026-10-23 09:34:13,341] 55d06633b951/INFO/locust.runners: All users spawned: {"SearchUser": 200} (200 total users)
+[2026-10-23 09:35:08,472] 55d06633b951/INFO/locust.runners: Shape test stopping
+[2026-10-23 09:35:08,524] 55d06633b951/INFO/locust.main: Shape test completed, shutting down
+[2026-10-23 09:35:08,589] 55d06633b951/INFO/locust.main: Shutting down (exit code 0)

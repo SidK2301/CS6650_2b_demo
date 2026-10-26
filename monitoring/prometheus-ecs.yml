@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: product-api
+    file_sd_configs:
+      - files: ['/etc/prometheus/targets/ecs.json']
+        refresh_interval: 5s

@@ -1,0 +1,17 @@
+{
+  "Label": "MemoryUtilization",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-23T01:18:00-04:00",
+      "Average": 7.2265625,
+      "Maximum": 8.49609375,
+      "Unit": "Percent"
+    },
+    {
+      "Timestamp": "2026-10-23T01:19:00-04:00",
+      "Average": 9.798177083333334,
+      "Maximum": 10.3515625,
+      "Unit": "Percent"
+    }
+  ]
+}

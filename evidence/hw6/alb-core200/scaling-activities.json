@@ -1,0 +1,16 @@
+{
+  "ScalingActivities": [
+    {
+      "ActivityId": "2159be74-2d2d-41bb-b90f-850e21c53983",
+      "ServiceNamespace": "ecs",
+      "ResourceId": "service/cs6650-hw5-product-cluster/cs6650-hw5-product",
+      "ScalableDimension": "ecs:service:DesiredCount",
+      "Description": "Setting desired count to 2.",
+      "Cause": "minimum capacity was set to 2",
+      "StartTime": "2026-10-23T02:01:35.529000-04:00",
+      "EndTime": "2026-10-23T02:02:11.475000-04:00",
+      "StatusCode": "Successful",
+      "StatusMessage": "Successfully set desired count to 2. Change successfully fulfilled by ecs."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "baseline": {
+    "requests": 5909,
+    "failures": 0,
+    "rps": 49.35598031751206,
+    "median_client_ms": 93.0,
+    "p95_client_ms": 150.0,
+    "max_minute_average_cpu_pct": 8.318530718485514,
+    "memory_average_pct_range": [
+      7.2265625,
+      9.798177083333334
+    ],
+    "generator_peak_sampled_cpu_pct": 6.0,
+    "window": {
+      "start_utc": "2026-10-23T05:18:07.926246+00:00",
+      "host": "http://44.243.142.93:8080",
+      "queries": [
+        "Electro",
+        "Books",
+        "Home",
+        "Sports",
+        "Clothing",
+        "Alpha",
+        "Camera"
+      ],
+      "wait_seconds": 0,
+      "warmup_reset": false,
+      "load_generator": "laptop-docker",
+      "end_utc": "2026-10-23T05:20:07.648752+00:00"
+    }
+  },
+  "breaking20": {
+    "requests": 33327,
+    "failures": 0,
+    "rps": 175.37016459966605,
+    "median_client_ms": 97.0,
+    "p95_client_ms": 160.0,
+    "max_minute_average_cpu_pct": 22.541638056437176,
+    "memory_average_pct_range": [
+      7.91015625,
+      12.5
+    ],
+    "generator_peak_sampled_cpu_pct": 35.3,
+    "window": {
+      "start_utc": "2026-10-23T05:32:27.990260+00:00",
+      "host": "http://44.243.142.93:8080",
+      "queries": [
+        "Electro",
+        "Books",
+        "Home",
+        "Sports",
+        "Clothing",
+        "Alpha",
+        "Camera"
+      ],
+      "wait_seconds": 0,
+      "warmup_reset": false,
+      "load_generator": "laptop-docker",
+      "end_utc": "2026-10-23T05:35:38.031192+00:00"
+    }
+  },
+  "spike100": {
+    "requests": 181945,
+    "failures": 0,
+    "rps_whole_run": 606.4732483496281,
+    "median_client_ms": 100.0,
+    "p95_client_ms": 170.0,
+    "window": {
+      "start_utc": "2026-10-23T05:39:38.741005+00:00",
+      "host": "http://44.243.142.93:8080",
+      "queries": [
+        "Electro",
+        "Books",
+        "Home",
+        "Sports",
+        "Clothing",
+        "Alpha",
+        "Camera"
+      ],
+      "wait_seconds": 0,
+      "warmup_reset": false,
+      "load_generator": "laptop-docker",
+      "end_utc": "2026-10-23T05:44:38.847195+00:00"
+    }
+  },
+  "saturation200": {
+    "requests": 229842,
+    "failures": 0,
+    "rps_whole_run": 1277.9646733185677,
+    "median_client_ms": 120.0,
+    "p95_client_ms": 300.0,
+    "window": {
+      "start_utc": "2026-10-23T05:48:04.855127+00:00",
+      "host": "http://44.243.142.93:8080",
+      "queries": [
+        "Electro",
+        "Books",
+        "Home",
+        "Sports",
+        "Clothing",
+        "Alpha",
+        "Camera"
+      ],
+      "wait_seconds": 0,
+      "warmup_reset": false,
+      "load_generator": "laptop-docker",
+      "end_utc": "2026-10-23T05:51:04.709129+00:00"
+    }
+  }
+}

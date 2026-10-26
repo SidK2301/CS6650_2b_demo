@@ -1,0 +1,15 @@
+[2026-10-23 05:39:38,738] 4171ae026901/INFO/locust.main: Starting Locust 2.46.6
+[2026-10-23 05:39:38,739] 4171ae026901/INFO/locust.runners: Shape test starting.
+[2026-10-23 05:39:38,740] 4171ae026901/INFO/locust.runners: Shape worker starting
+[2026-10-23 05:39:38,740] 4171ae026901/INFO/locust.runners: Shape test updating to 20 users at 100.00 spawn rate
+[2026-10-23 05:39:38,741] 4171ae026901/INFO/locust.runners: Ramping to 20 users at a rate of 100.00 per second
+[2026-10-23 05:39:38,742] 4171ae026901/INFO/locust.runners: All users spawned: {"SearchUser": 20} (20 total users)
+[2026-10-23 05:40:38,952] 4171ae026901/INFO/locust.runners: Shape test updating to 100 users at 100.00 spawn rate
+[2026-10-23 05:40:38,953] 4171ae026901/INFO/locust.runners: Ramping to 100 users at a rate of 100.00 per second
+[2026-10-23 05:40:38,956] 4171ae026901/INFO/locust.runners: All users spawned: {"SearchUser": 100} (100 total users)
+[2026-10-23 05:43:39,574] 4171ae026901/INFO/locust.runners: Shape test updating to 20 users at 100.00 spawn rate
+[2026-10-23 05:43:39,576] 4171ae026901/INFO/locust.runners: Ramping to 20 users at a rate of 100.00 per second
+[2026-10-23 05:43:39,595] 4171ae026901/INFO/locust.runners: All users spawned: {"SearchUser": 20} (20 total users)
+[2026-10-23 05:44:38,817] 4171ae026901/INFO/locust.runners: Shape test stopping
+[2026-10-23 05:44:38,848] 4171ae026901/INFO/locust.main: Shape test completed, shutting down
+[2026-10-23 05:44:38,915] 4171ae026901/INFO/locust.main: Shutting down (exit code 0)

@@ -1,0 +1,51 @@
+{
+  "field": "min_capacity",
+  "trial_value": 4,
+  "duration_seconds": 90,
+  "original_policy": {
+    "TargetValue": 70.0,
+    "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+    },
+    "ScaleOutCooldown": 300,
+    "ScaleInCooldown": 300,
+    "DisableScaleIn": false
+  },
+  "original_min": 2,
+  "original_max": 4,
+  "start_utc": "2026-10-23T09:42:54.935409+00:00",
+  "trial_min": 4,
+  "trial_max": 4,
+  "update_response": {
+    "ScalableTargetARN": "arn:aws:application-autoscaling:us-west-2:723699460077:scalable-target/0ec516e3d945f3334251a6f6adec723b018f"
+  },
+  "applied_utc": "2026-10-23T09:42:55.953187+00:00",
+  "restore_response": {
+    "ScalableTargetARN": "arn:aws:application-autoscaling:us-west-2:723699460077:scalable-target/0ec516e3d945f3334251a6f6adec723b018f"
+  },
+  "restored_utc": "2026-10-23T09:44:26.968422+00:00",
+  "final_policy": {
+    "TargetValue": 70.0,
+    "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+    },
+    "ScaleOutCooldown": 300,
+    "ScaleInCooldown": 300,
+    "DisableScaleIn": false
+  },
+  "final_target": {
+    "ServiceNamespace": "ecs",
+    "ResourceId": "service/cs6650-hw5-product-cluster/cs6650-hw5-product",
+    "ScalableDimension": "ecs:service:DesiredCount",
+    "MinCapacity": 2,
+    "MaxCapacity": 4,
+    "RoleARN": "arn:aws:iam::723699460077:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+    "CreationTime": "2026-10-23T02:01:20.065000-04:00",
+    "SuspendedState": {
+      "DynamicScalingInSuspended": false,
+      "DynamicScalingOutSuspended": false,
+      "ScheduledScalingSuspended": false
+    },
+    "ScalableTargetARN": "arn:aws:application-autoscaling:us-west-2:723699460077:scalable-target/0ec516e3d945f3334251a6f6adec723b018f"
+  }
+}

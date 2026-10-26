@@ -1,0 +1,47 @@
+{
+  "MetricDataResults": [
+    {
+      "Id": "taskcpu",
+      "Label": "41f23938072f4f26a4ddb2acc5d613b3",
+      "Timestamps": [],
+      "Values": [],
+      "StatusCode": "Complete"
+    },
+    {
+      "Id": "taskcpu",
+      "Label": "66a2e4508df04a6884b806a93d2f457b",
+      "Timestamps": [
+        "2026-10-23T02:05:00-04:00",
+        "2026-10-23T02:04:00-04:00"
+      ],
+      "Values": [
+        95.57433319091797,
+        46.87933399528265
+      ],
+      "StatusCode": "Complete"
+    },
+    {
+      "Id": "taskcpu",
+      "Label": "bb77a9552533476ebadb358d54becc89",
+      "Timestamps": [
+        "2026-10-23T02:06:00-04:00",
+        "2026-10-23T02:05:00-04:00",
+        "2026-10-23T02:04:00-04:00"
+      ],
+      "Values": [
+        71.97489420572917,
+        74.2878926595052,
+        29.848993331193924
+      ],
+      "StatusCode": "Complete"
+    },
+    {
+      "Id": "taskcpu",
+      "Label": "dd3d8e63de2f465280b0fd87929b2370",
+      "Timestamps": [],
+      "Values": [],
+      "StatusCode": "Complete"
+    }
+  ],
+  "Messages": []
+}

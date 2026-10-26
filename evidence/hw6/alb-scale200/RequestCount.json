@@ -1,0 +1,55 @@
+{
+  "Label": "RequestCount",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-23T02:15:00-04:00",
+      "Sum": 70785.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:16:00-04:00",
+      "Sum": 95127.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:17:00-04:00",
+      "Sum": 95208.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:18:00-04:00",
+      "Sum": 93799.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:19:00-04:00",
+      "Sum": 94359.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:20:00-04:00",
+      "Sum": 94159.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:21:00-04:00",
+      "Sum": 93624.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:22:00-04:00",
+      "Sum": 100132.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:23:00-04:00",
+      "Sum": 102356.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:24:00-04:00",
+      "Sum": 100630.0,
+      "Unit": "Count"
+    }
+  ]
+}

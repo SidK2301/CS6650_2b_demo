@@ -1,0 +1,55 @@
+{
+  "Label": "TargetResponseTime",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-23T02:15:00-04:00",
+      "Average": 0.016479785703185704,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:16:00-04:00",
+      "Average": 0.01748067441420417,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:17:00-04:00",
+      "Average": 0.017042450424334093,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:18:00-04:00",
+      "Average": 0.017053362519856285,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:19:00-04:00",
+      "Average": 0.01647041695015844,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:20:00-04:00",
+      "Average": 0.01667149969732049,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:21:00-04:00",
+      "Average": 0.018198471150559684,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:22:00-04:00",
+      "Average": 0.01046870934366636,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:23:00-04:00",
+      "Average": 0.005896850111375982,
+      "Unit": "Seconds"
+    },
+    {
+      "Timestamp": "2026-10-23T02:24:00-04:00",
+      "Average": 0.006002715313524793,
+      "Unit": "Seconds"
+    }
+  ]
+}

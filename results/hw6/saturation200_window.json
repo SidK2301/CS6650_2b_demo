@@ -1,0 +1,17 @@
+{
+  "start_utc": "2026-10-23T05:48:04.855127+00:00",
+  "host": "http://44.243.142.93:8080",
+  "queries": [
+    "Electro",
+    "Books",
+    "Home",
+    "Sports",
+    "Clothing",
+    "Alpha",
+    "Camera"
+  ],
+  "wait_seconds": 0,
+  "warmup_reset": false,
+  "load_generator": "laptop-docker",
+  "end_utc": "2026-10-23T05:51:04.709129+00:00"
+}

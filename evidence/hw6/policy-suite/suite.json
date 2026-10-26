@@ -1,0 +1,55 @@
+{
+  "start_utc": "2026-10-23T09:36:42.042225+00:00",
+  "scope": "Exploration, not a controlled steady-state benchmark; task state can carry between trials. Short windows may not outlast alarm evaluation and metric publication.",
+  "trials": [
+    {
+      "name": "1-target_value-50",
+      "field": "target_value",
+      "value": 50,
+      "duration_seconds": 240,
+      "start_utc": "2026-10-23T09:36:42.043071+00:00",
+      "end_utc": "2026-10-23T09:40:47.957312+00:00"
+    },
+    {
+      "name": "2-target_value-90",
+      "field": "target_value",
+      "value": 90,
+      "duration_seconds": 120,
+      "start_utc": "2026-10-23T09:40:47.958085+00:00",
+      "end_utc": "2026-10-23T09:42:53.274483+00:00"
+    },
+    {
+      "name": "3-min_capacity-4",
+      "field": "min_capacity",
+      "value": 4,
+      "duration_seconds": 90,
+      "start_utc": "2026-10-23T09:42:53.275496+00:00",
+      "end_utc": "2026-10-23T09:44:28.467021+00:00"
+    },
+    {
+      "name": "4-max_capacity-2",
+      "field": "max_capacity",
+      "value": 2,
+      "duration_seconds": 90,
+      "start_utc": "2026-10-23T09:44:28.467791+00:00",
+      "end_utc": "2026-10-23T09:46:04.118173+00:00"
+    },
+    {
+      "name": "5-scale_out_cooldown-30",
+      "field": "scale_out_cooldown",
+      "value": 30,
+      "duration_seconds": 60,
+      "start_utc": "2026-10-23T09:46:04.119231+00:00",
+      "end_utc": "2026-10-23T09:47:09.726152+00:00"
+    },
+    {
+      "name": "6-scale_in_cooldown-30",
+      "field": "scale_in_cooldown",
+      "value": 30,
+      "duration_seconds": 60,
+      "start_utc": "2026-10-23T09:47:09.727186+00:00",
+      "end_utc": "2026-10-23T09:48:15.589965+00:00"
+    }
+  ],
+  "end_utc": "2026-10-23T09:48:15.590717+00:00"
+}

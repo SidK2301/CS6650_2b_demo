@@ -1,0 +1,20 @@
+{
+  "AlarmHistoryItems": [
+    {
+      "AlarmName": "TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmHigh-21c93025-c279-4548-a312-632d729d30ef",
+      "AlarmType": "MetricAlarm",
+      "Timestamp": "2026-10-23T02:21:40.683000-04:00",
+      "HistoryItemType": "Action",
+      "HistorySummary": "Successfully executed action arn:aws:autoscaling:us-west-2:723699460077:scalingPolicy:16e3d945-f333-4251-a6f6-adec723b018f:resource/ecs/service/cs6650-hw5-product-cluster/cs6650-hw5-product:policyName/cs6650-hw5-product-cpu:createdBy/9258d7b4-0429-48aa-aebd-3a5d5ad02d36",
+      "HistoryData": "{\"actionState\":\"Succeeded\",\"stateUpdateTimestamp\":1792736500524,\"notificationResource\":\"arn:aws:autoscaling:us-west-2:723699460077:scalingPolicy:16e3d945-f333-4251-a6f6-adec723b018f:resource/ecs/service/cs6650-hw5-product-cluster/cs6650-hw5-product:policyName/cs6650-hw5-product-cpu:createdBy/9258d7b4-0429-48aa-aebd-3a5d5ad02d36\",\"publishedMessage\":null,\"error\":null,\"muteWindowEndTimestamp\":null}"
+    },
+    {
+      "AlarmName": "TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmHigh-21c93025-c279-4548-a312-632d729d30ef",
+      "AlarmType": "MetricAlarm",
+      "Timestamp": "2026-10-23T02:21:40.524000-04:00",
+      "HistoryItemType": "StateUpdate",
+      "HistorySummary": "Alarm updated from OK to ALARM",
+      "HistoryData": "{\"version\":\"1.0\",\"oldState\":{\"stateValue\":\"OK\",\"stateReason\":\"Threshold Crossed: 3 datapoints [0.620950394620498 (23/10/26 05:59:00), 0.6184679505725702 (23/10/26 05:58:00), 0.599377054721117 (23/10/26 05:57:00)] were not greater than the threshold (70.0).\",\"stateReasonData\":{\"version\":\"1.0\",\"queryDate\":\"2026-10-23T06:02:40.522+0000\",\"startDate\":\"2026-10-23T05:57:00.000+0000\",\"unit\":\"Percent\",\"statistic\":\"Average\",\"period\":60,\"recentDatapoints\":[0.599377054721117,0.6184679505725702,0.620950394620498],\"threshold\":70.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-10-23T05:59:00.000+0000\",\"sampleCount\":1.0,\"value\":0.620950394620498}]}},\"newState\":{\"stateValue\":\"ALARM\",\"stateReason\":\"Threshold Crossed: 3 datapoints [84.34820175170898 (23/10/26 06:18:00), 85.75128936767578 (23/10/26 06:17:00), 86.93174489339194 (23/10/26 06:16:00)] were greater than the threshold (70.0).\",\"stateReasonData\":{\"version\":\"1.0\",\"queryDate\":\"2026-10-23T06:21:40.522+0000\",\"startDate\":\"2026-10-23T06:16:00.000+0000\",\"unit\":\"Percent\",\"statistic\":\"Average\",\"period\":60,\"recentDatapoints\":[86.93174489339194,85.75128936767578,84.34820175170898],\"threshold\":70.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2026-10-23T06:18:00.000+0000\",\"sampleCount\":2.0,\"value\":84.34820175170898},{\"timestamp\":\"2026-10-23T06:17:00.000+0000\",\"sampleCount\":2.0,\"value\":85.75128936767578},{\"timestamp\":\"2026-10-23T06:16:00.000+0000\",\"sampleCount\":2.0,\"value\":86.93174489339194}]}}}"
+    }
+  ]
+}

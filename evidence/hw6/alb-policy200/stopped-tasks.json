@@ -1,0 +1,28 @@
+[
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/3918333423a44b239a5869626ca71846",
+    "stopCode": "ServiceSchedulerInitiated",
+    "stoppedReason": "Scaling activity initiated by (deployment ecs-svc/7594811533645872037)",
+    "stoppedAt": "2026-10-23T05:46:13.860000-04:00",
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": 143,
+        "reason": null
+      }
+    ]
+  },
+  {
+    "taskArn": "arn:aws:ecs:us-west-2:723699460077:task/cs6650-hw5-product-cluster/4391bf142bdc430e919789c8979bb9ce",
+    "stopCode": "ServiceSchedulerInitiated",
+    "stoppedReason": "Scaling activity initiated by (deployment ecs-svc/7594811533645872037)",
+    "stoppedAt": "2026-10-23T05:46:10.569000-04:00",
+    "containers": [
+      {
+        "name": "cs6650-hw5-product-container",
+        "exitCode": 143,
+        "reason": null
+      }
+    ]
+  }
+]

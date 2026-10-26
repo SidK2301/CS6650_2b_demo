@@ -1,0 +1,6 @@
+# Apply alongside docker-compose.yml for AWS experiments only.
+services:
+  prometheus:
+    volumes:
+      - ./monitoring/prometheus-ecs.yml:/etc/prometheus/prometheus.yml:ro
+      - ./monitoring/targets:/etc/prometheus/targets:ro

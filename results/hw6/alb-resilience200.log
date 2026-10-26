@@ -1,0 +1,9 @@
+[2026-10-23 06:30:29,880] 5189bea919d2/INFO/locust.main: Starting Locust 2.46.6
+[2026-10-23 06:30:29,881] 5189bea919d2/INFO/locust.main: Starting web interface at http://0.0.0.0:8089, press enter to open your default browser.
+[2026-10-23 06:30:29,888] 5189bea919d2/INFO/locust.main: Run time limit set to 360 seconds
+[2026-10-23 06:30:29,892] 5189bea919d2/INFO/locust.runners: Ramping to 200 users at a rate of 20.00 per second
+[2026-10-23 06:30:38,908] 5189bea919d2/INFO/locust.runners: All users spawned: {"SearchUser": 200} (200 total users)
+[2026-10-23 06:36:29,688] 5189bea919d2/INFO/locust.main: --run-time limit reached, stopping test
+[2026-10-23 06:36:29,733] 5189bea919d2/INFO/locust.main: --autoquit not specified, leaving web ui running indefinitely
+[2026-10-23 06:40:40,426] 5189bea919d2/INFO/locust.main: Got SIGTERM signal
+[2026-10-23 06:40:40,428] 5189bea919d2/INFO/locust.main: Shutting down (exit code 0)

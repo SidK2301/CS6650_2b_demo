@@ -1,20 +1,20 @@
 locals {
   src_hash  = sha1(join("", [for f in sort(fileset("${path.module}/../src", "**")) : filesha1("${path.module}/../src/${f}")]))
-  image_tag = "${module.ecr.repository_url}:${local.src_hash}"
+  image_tag = "${data.aws_ecr_repository.app.repository_url}:${local.src_hash}"
 }
 
-# Wire together four focused modules: network, ecr, logging, ecs.
+# Application infrastructure; ECR is owned independently by terraform-ecr/.
 
 module "network" {
   source         = "./modules/network"
   service_name   = var.service_name
   container_port = var.container_port
   cidr_blocks    = var.allowed_cidrs
+  enable_alb     = var.enable_scaling
 }
 
-module "ecr" {
-  source          = "./modules/ecr"
-  repository_name = var.ecr_repository_name
+data "aws_ecr_repository" "app" {
+  name = var.ecr_repository_name
 }
 
 module "logging" {
@@ -40,7 +40,14 @@ module "ecs" {
   log_group_name     = module.logging.log_group_name
   ecs_count          = var.ecs_count
   region             = var.aws_region
-  depends_on         = [docker_registry_image.app]
+  scaling_enabled    = var.enable_scaling
+  target_group_arn   = module.network.target_group_arn
+  min_tasks          = var.min_tasks
+  max_tasks          = var.max_tasks
+  cpu_target         = var.cpu_target
+  scale_out_cooldown = var.scale_out_cooldown
+  scale_in_cooldown  = var.scale_in_cooldown
+  depends_on         = [docker_registry_image.app, module.network]
 }
 
 
@@ -59,5 +66,6 @@ resource "docker_image" "app" {
 
 resource "docker_registry_image" "app" {
   # Push the same content-tagged image referenced by the task definition.
-  name = docker_image.app.name
+  name          = docker_image.app.name
+  keep_remotely = true
 }

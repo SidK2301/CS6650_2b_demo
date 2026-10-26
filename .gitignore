@@ -16,3 +16,7 @@ __pycache__/
 *.tfplan
 crash.log
 *.pyc
+
+# Report rendering intermediates and live discovery output
+tmp/
+monitoring/targets/ecs.json

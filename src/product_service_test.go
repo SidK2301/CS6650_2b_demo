@@ -52,7 +52,7 @@ func TestContract(t *testing.T) {
 		{"oversize body", "POST", "/products/1/details", bodyWith("extra", strings.Repeat("x", 1<<20)), 400, false},
 		{"uppercase required key", "POST", "/products/1/details", strings.Replace(good, `"sku"`, `"SKU"`, 1), 400, false},
 		{"uppercase extra key cannot override", "POST", "/products/1/details", bodyWith("SKU", "ignored"), 204, false},
-		{"missing", "GET", "/products/1001", "", 404, false},
+		{"missing", "GET", "/products/100001", "", 404, false},
 		{"bad get", "GET", "/products/abc", "", 404, false},
 		{"zero get", "GET", "/products/0", "", 404, false},
 		{"negative get", "GET", "/products/-5", "", 404, false},
@@ -83,7 +83,7 @@ func TestContract(t *testing.T) {
 		{"manufacturer boundary", "POST", "/products/1/details", bodyWith("manufacturer", strings.Repeat("界", 200)), 204, false},
 		{"manufacturer over", "POST", "/products/1/details", bodyWith("manufacturer", strings.Repeat("界", 201)), 400, false},
 		{"extra fields", "POST", "/products/1/details", bodyWith("extra", "allowed"), 204, false},
-		{"unknown update", "POST", "/products/1001/details", bodyWith("product_id", 1001), 404, false},
+		{"unknown update", "POST", "/products/100001/details", bodyWith("product_id", 100001), 404, false},
 		{"post fault", "POST", "/products/1/details", good, 500, true},
 		{"unknown route", "GET", "/nothing", "", 404, false},
 	}

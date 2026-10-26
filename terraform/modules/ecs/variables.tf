@@ -60,3 +60,32 @@ variable "memory" {
   default     = "512"
   description = "Memory (MiB)"
 }
+
+variable "scaling_enabled" {
+  type    = bool
+  default = false
+}
+variable "target_group_arn" {
+  type    = string
+  default = null
+}
+variable "min_tasks" {
+  type    = number
+  default = 2
+}
+variable "max_tasks" {
+  type    = number
+  default = 4
+}
+variable "cpu_target" {
+  type    = number
+  default = 70
+}
+variable "scale_out_cooldown" {
+  type    = number
+  default = 300
+}
+variable "scale_in_cooldown" {
+  type    = number
+  default = 300
+}

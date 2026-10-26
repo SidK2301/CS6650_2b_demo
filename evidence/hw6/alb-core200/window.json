@@ -1,0 +1,17 @@
+{
+  "start_utc": "2026-10-23T06:04:10.828787+00:00",
+  "host": "http://cs6650-hw5-product-alb-636765843.us-west-2.elb.amazonaws.com",
+  "queries": [
+    "Electro",
+    "Books",
+    "Home",
+    "Sports",
+    "Clothing",
+    "Alpha",
+    "Camera"
+  ],
+  "wait_seconds": 0,
+  "warmup_reset": false,
+  "load_generator": "laptop-docker",
+  "end_utc": "2026-10-23T06:07:10.731718+00:00"
+}

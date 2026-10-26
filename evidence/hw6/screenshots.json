@@ -1,0 +1,80 @@
+[
+  {
+    "figure": 1,
+    "title": "Local search instrumentation",
+    "file": "phase1/phase1-grafana-search.png",
+    "sha256": "67851c15d8648e0ca71658a03bfa6bc654b3a64834df76c31d6460d93c8c3440"
+  },
+  {
+    "figure": 2,
+    "title": "Five-user baseline",
+    "file": "baseline/phase2-baseline-dashboards.png",
+    "sha256": "45c515ef1fae2cc53c70190e2c7d7f9f9a025699d814f26c1768d89bed08c345"
+  },
+  {
+    "figure": 3,
+    "title": "Twenty-user required test",
+    "file": "breaking20/phase2-20users-dashboards.png",
+    "sha256": "25e234c32aa6dfc1773f6ade34a3655fae91e53a0bfbe36cb747a55ffefbd637"
+  },
+  {
+    "figure": 4,
+    "title": "Spike to 100 users",
+    "file": "spike100/phase2-spike100-dashboards.png",
+    "sha256": "c3334e01cdfa0c70f5aea1e161ebae6b30722965fe44e4c5a916650d3a1494e0"
+  },
+  {
+    "figure": 5,
+    "title": "Single-task saturation at 200 users",
+    "file": "saturation200/phase2-saturation200-dashboards.png",
+    "sha256": "97926461209b280609c3ea312038f05d7ea1eb10ef558d1e7ad59ee438978b85"
+  },
+  {
+    "figure": 6,
+    "title": "ALB core comparison: CPU and tasks",
+    "file": "alb-core200/phase3-core200-dashboards.png",
+    "sha256": "c1a730b946dc73988a1a7f36d76ea398dbcc933e809705fc54f37e46c0928f99"
+  },
+  {
+    "figure": 7,
+    "title": "ALB core comparison: requests and latency",
+    "file": "alb-core200/phase3-core200-alb-metrics.png",
+    "sha256": "3441691eb4b1a55869dedc91f07221a96516a61ba4c0eb20b4fa24401ea4b66e"
+  },
+  {
+    "figure": 8,
+    "title": "Scale-out: CPU and capacity",
+    "file": "alb-scale200/phase3-scaleout-dashboards.png",
+    "sha256": "0388c814c1df197ab699aee6f1654254e098d1f68ecf7e59b089ac7cc93493b4"
+  },
+  {
+    "figure": 9,
+    "title": "Scale-out: ALB latency",
+    "file": "alb-scale200/phase3-scaleout-alb-metrics.png",
+    "sha256": "9514a33dfb754c971a3a9fc65b5ac0ac4f28f6b0966a46803b146bd5a9638a25"
+  },
+  {
+    "figure": 10,
+    "title": "Task-stop resilience: CPU and capacity",
+    "file": "alb-resilience200/phase3-resilience-dashboards.png",
+    "sha256": "9d76e01b991509f95174d96aa83063fec51ca50f7c216d2ac849945c0a82795d"
+  },
+  {
+    "figure": 11,
+    "title": "Task-stop resilience: ALB metrics",
+    "file": "alb-resilience200/phase3-resilience-alb-metrics.png",
+    "sha256": "927f257fe7f610d6d2b1d095d834ded016509493e706efd502e29e0c3bbc1f1d"
+  },
+  {
+    "figure": 12,
+    "title": "Health-check failure and recovery",
+    "file": "alb-health200/phase3-health-failure-dashboards.png",
+    "sha256": "a39c2af615a364c7dd049cd2c5469d80d2478493501de1fa823a49b8d5ff5b30"
+  },
+  {
+    "figure": 13,
+    "title": "Health-check failure: ALB metrics",
+    "file": "alb-health200/phase3-health-failure-alb-metrics.png",
+    "sha256": "7b9a7c9299ebdf2db63542916044e22948592604bcaa061c2c1207acfb13e203"
+  }
+]

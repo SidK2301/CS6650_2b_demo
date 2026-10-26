@@ -1,0 +1,35 @@
+{
+  "Label": "RunningTaskCount",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-23T02:40:00-04:00",
+      "Average": 3.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:41:00-04:00",
+      "Average": 3.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:42:00-04:00",
+      "Average": 3.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:43:00-04:00",
+      "Average": 3.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:44:00-04:00",
+      "Average": 3.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T02:45:00-04:00",
+      "Average": 3.0,
+      "Unit": "Count"
+    }
+  ]
+}

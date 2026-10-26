@@ -1,0 +1,35 @@
+{
+  "Label": "DesiredTaskCount",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-23T05:31:00-04:00",
+      "Average": 2.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T05:32:00-04:00",
+      "Average": 2.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T05:33:00-04:00",
+      "Average": 2.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T05:34:00-04:00",
+      "Average": 2.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T05:35:00-04:00",
+      "Average": 2.0,
+      "Unit": "Count"
+    },
+    {
+      "Timestamp": "2026-10-23T05:36:00-04:00",
+      "Average": 2.0,
+      "Unit": "Count"
+    }
+  ]
+}

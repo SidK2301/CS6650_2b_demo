@@ -25,6 +25,31 @@ variable "ecs_count" {
   default = 1
 }
 
+variable "enable_scaling" {
+  type    = bool
+  default = false
+}
+variable "min_tasks" {
+  type    = number
+  default = 2
+}
+variable "max_tasks" {
+  type    = number
+  default = 4
+}
+variable "cpu_target" {
+  type    = number
+  default = 70
+}
+variable "scale_out_cooldown" {
+  type    = number
+  default = 300
+}
+variable "scale_in_cooldown" {
+  type    = number
+  default = 300
+}
+
 # How long to keep logs
 variable "log_retention_days" {
   type    = number

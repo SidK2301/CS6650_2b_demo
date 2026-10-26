@@ -1,0 +1,116 @@
+=== RUN   TestContract
+=== RUN   TestContract/get
+=== RUN   TestContract/get_trailing_slash
+=== RUN   TestContract/post_trailing_slash
+=== RUN   TestContract/oversize_body
+=== RUN   TestContract/uppercase_required_key
+=== RUN   TestContract/uppercase_extra_key_cannot_override
+=== RUN   TestContract/missing
+=== RUN   TestContract/bad_get
+=== RUN   TestContract/zero_get
+=== RUN   TestContract/negative_get
+=== RUN   TestContract/overflow_get
+=== RUN   TestContract/get_fault
+=== RUN   TestContract/zero_weight
+=== RUN   TestContract/v1_update
+=== RUN   TestContract/v1_get
+=== RUN   TestContract/bad_path
+=== RUN   TestContract/zero_path
+=== RUN   TestContract/negative_path
+=== RUN   TestContract/overflow_path
+=== RUN   TestContract/malformed
+=== RUN   TestContract/null_body
+=== RUN   TestContract/trailing_object
+=== RUN   TestContract/missing_weight
+=== RUN   TestContract/null_weight
+=== RUN   TestContract/wrong_type
+=== RUN   TestContract/negative_weight
+=== RUN   TestContract/int_overflow
+=== RUN   TestContract/category
+=== RUN   TestContract/other_ID
+=== RUN   TestContract/mismatch
+=== RUN   TestContract/empty_SKU
+=== RUN   TestContract/unicode_boundary
+=== RUN   TestContract/unicode_over
+=== RUN   TestContract/empty_manufacturer
+=== RUN   TestContract/manufacturer_boundary
+=== RUN   TestContract/manufacturer_over
+=== RUN   TestContract/extra_fields
+=== RUN   TestContract/unknown_update
+=== RUN   TestContract/post_fault
+=== RUN   TestContract/unknown_route
+=== RUN   TestContract/missing_category_id
+=== RUN   TestContract/missing_weight#01
+=== RUN   TestContract/missing_some_other_id
+=== RUN   TestContract/missing_product_id
+=== RUN   TestContract/missing_sku
+=== RUN   TestContract/missing_manufacturer
+--- PASS: TestContract (32.30s)
+    --- PASS: TestContract/get (0.66s)
+    --- PASS: TestContract/get_trailing_slash (0.69s)
+    --- PASS: TestContract/post_trailing_slash (0.65s)
+    --- PASS: TestContract/oversize_body (0.69s)
+    --- PASS: TestContract/uppercase_required_key (0.69s)
+    --- PASS: TestContract/uppercase_extra_key_cannot_override (0.70s)
+    --- PASS: TestContract/missing (0.71s)
+    --- PASS: TestContract/bad_get (0.67s)
+    --- PASS: TestContract/zero_get (0.69s)
+    --- PASS: TestContract/negative_get (0.69s)
+    --- PASS: TestContract/overflow_get (0.69s)
+    --- PASS: TestContract/get_fault (0.71s)
+    --- PASS: TestContract/zero_weight (0.70s)
+    --- PASS: TestContract/v1_update (0.70s)
+    --- PASS: TestContract/v1_get (0.71s)
+    --- PASS: TestContract/bad_path (0.71s)
+    --- PASS: TestContract/zero_path (0.71s)
+    --- PASS: TestContract/negative_path (0.71s)
+    --- PASS: TestContract/overflow_path (0.71s)
+    --- PASS: TestContract/malformed (0.72s)
+    --- PASS: TestContract/null_body (0.70s)
+    --- PASS: TestContract/trailing_object (0.71s)
+    --- PASS: TestContract/missing_weight (0.71s)
+    --- PASS: TestContract/null_weight (0.71s)
+    --- PASS: TestContract/wrong_type (0.71s)
+    --- PASS: TestContract/negative_weight (0.72s)
+    --- PASS: TestContract/int_overflow (0.72s)
+    --- PASS: TestContract/category (0.72s)
+    --- PASS: TestContract/other_ID (0.71s)
+    --- PASS: TestContract/mismatch (0.71s)
+    --- PASS: TestContract/empty_SKU (0.71s)
+    --- PASS: TestContract/unicode_boundary (0.73s)
+    --- PASS: TestContract/unicode_over (0.71s)
+    --- PASS: TestContract/empty_manufacturer (0.71s)
+    --- PASS: TestContract/manufacturer_boundary (0.72s)
+    --- PASS: TestContract/manufacturer_over (0.72s)
+    --- PASS: TestContract/extra_fields (0.71s)
+    --- PASS: TestContract/unknown_update (0.72s)
+    --- PASS: TestContract/post_fault (0.72s)
+    --- PASS: TestContract/unknown_route (0.70s)
+    --- PASS: TestContract/missing_category_id (0.72s)
+    --- PASS: TestContract/missing_weight#01 (0.72s)
+    --- PASS: TestContract/missing_some_other_id (0.72s)
+    --- PASS: TestContract/missing_product_id (0.66s)
+    --- PASS: TestContract/missing_sku (0.66s)
+    --- PASS: TestContract/missing_manufacturer (0.63s)
+=== RUN   TestFaultObservability
+=== RUN   TestFaultObservability/GET
+=== RUN   TestFaultObservability/POST
+--- PASS: TestFaultObservability (2.13s)
+    --- PASS: TestFaultObservability/GET (0.72s)
+    --- PASS: TestFaultObservability/POST (0.71s)
+=== RUN   TestMetricExclusions
+--- PASS: TestMetricExclusions (0.73s)
+=== RUN   TestConcurrentReadsUpdates
+--- PASS: TestConcurrentReadsUpdates (0.73s)
+=== RUN   TestAbortHandlerPropagates
+--- PASS: TestAbortHandlerPropagates (0.72s)
+=== RUN   TestSearchContractAndBound
+    search_test.go:51: local handler request evidence: {"time":"2026-10-26T01:51:28.564815-04:00","level":"INFO","msg":"request","endpoint":"/products/search","method":"GET","status":200,"duration_ms":0.651791,"checked":100}
+    search_test.go:51: local handler request evidence: {"time":"2026-10-26T01:51:28.565833-04:00","level":"INFO","msg":"request","endpoint":"/products/search","method":"GET","status":200,"duration_ms":0.252833,"checked":100}
+    search_test.go:51: local handler request evidence: {"time":"2026-10-26T01:51:28.566577-04:00","level":"INFO","msg":"request","endpoint":"/products/search","method":"GET","status":200,"duration_ms":0.148292,"checked":100}
+    search_test.go:51: local handler request evidence: {"time":"2026-10-26T01:51:28.566888-04:00","level":"INFO","msg":"request","endpoint":"/products/search","method":"GET","status":200,"duration_ms":0.149459,"checked":100}
+--- PASS: TestSearchContractAndBound (1.04s)
+=== RUN   TestUnknownUpdateDoesNotInsert
+--- PASS: TestUnknownUpdateDoesNotInsert (0.72s)
+PASS
+ok  	text/main	39.901s

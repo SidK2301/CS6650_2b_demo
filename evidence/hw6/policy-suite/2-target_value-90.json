@@ -1,0 +1,78 @@
+{
+  "field": "target_value",
+  "trial_value": 90,
+  "duration_seconds": 120,
+  "original_policy": {
+    "TargetValue": 70.0,
+    "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+    },
+    "ScaleOutCooldown": 300,
+    "ScaleInCooldown": 300,
+    "DisableScaleIn": false
+  },
+  "original_min": 2,
+  "original_max": 4,
+  "start_utc": "2026-10-23T09:40:49.523049+00:00",
+  "trial_policy": {
+    "TargetValue": 90,
+    "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+    },
+    "ScaleOutCooldown": 300,
+    "ScaleInCooldown": 300,
+    "DisableScaleIn": false
+  },
+  "update_response": {
+    "PolicyARN": "arn:aws:autoscaling:us-west-2:723699460077:scalingPolicy:16e3d945-f333-4251-a6f6-adec723b018f:resource/ecs/service/cs6650-hw5-product-cluster/cs6650-hw5-product:policyName/cs6650-hw5-product-cpu",
+    "Alarms": [
+      {
+        "AlarmName": "TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmHigh-ac79aab3-7beb-4d0e-8eb4-fe27e9043c77",
+        "AlarmARN": "arn:aws:cloudwatch:us-west-2:723699460077:alarm:TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmHigh-ac79aab3-7beb-4d0e-8eb4-fe27e9043c77"
+      },
+      {
+        "AlarmName": "TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmLow-636f9de2-f6f5-4f21-808a-463e5b49ada9",
+        "AlarmARN": "arn:aws:cloudwatch:us-west-2:723699460077:alarm:TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmLow-636f9de2-f6f5-4f21-808a-463e5b49ada9"
+      }
+    ]
+  },
+  "applied_utc": "2026-10-23T09:40:50.593399+00:00",
+  "restore_response": {
+    "PolicyARN": "arn:aws:autoscaling:us-west-2:723699460077:scalingPolicy:16e3d945-f333-4251-a6f6-adec723b018f:resource/ecs/service/cs6650-hw5-product-cluster/cs6650-hw5-product:policyName/cs6650-hw5-product-cpu",
+    "Alarms": [
+      {
+        "AlarmName": "TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmHigh-c7b5b8b7-4e24-4a63-9884-e53e62c552e1",
+        "AlarmARN": "arn:aws:cloudwatch:us-west-2:723699460077:alarm:TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmHigh-c7b5b8b7-4e24-4a63-9884-e53e62c552e1"
+      },
+      {
+        "AlarmName": "TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmLow-c9ae49db-929e-4207-9e94-3dbef2b8749c",
+        "AlarmARN": "arn:aws:cloudwatch:us-west-2:723699460077:alarm:TargetTracking-service/cs6650-hw5-product-cluster/cs6650-hw5-product-AlarmLow-c9ae49db-929e-4207-9e94-3dbef2b8749c"
+      }
+    ]
+  },
+  "restored_utc": "2026-10-23T09:42:51.819990+00:00",
+  "final_policy": {
+    "TargetValue": 70.0,
+    "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+    },
+    "ScaleOutCooldown": 300,
+    "ScaleInCooldown": 300,
+    "DisableScaleIn": false
+  },
+  "final_target": {
+    "ServiceNamespace": "ecs",
+    "ResourceId": "service/cs6650-hw5-product-cluster/cs6650-hw5-product",
+    "ScalableDimension": "ecs:service:DesiredCount",
+    "MinCapacity": 2,
+    "MaxCapacity": 4,
+    "RoleARN": "arn:aws:iam::723699460077:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+    "CreationTime": "2026-10-23T02:01:20.065000-04:00",
+    "SuspendedState": {
+      "DynamicScalingInSuspended": false,
+      "DynamicScalingOutSuspended": false,
+      "ScheduledScalingSuspended": false
+    },
+    "ScalableTargetARN": "arn:aws:application-autoscaling:us-west-2:723699460077:scalable-target/0ec516e3d945f3334251a6f6adec723b018f"
+  }
+}

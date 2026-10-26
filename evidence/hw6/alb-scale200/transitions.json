@@ -1,0 +1,23 @@
+[
+  {
+    "utc": "2026-10-23T06:15:12.979626+00:00",
+    "desired": 2,
+    "running": 2,
+    "pending": 0,
+    "healthy": 2
+  },
+  {
+    "utc": "2026-10-23T06:21:53.223992+00:00",
+    "desired": 3,
+    "running": 2,
+    "pending": 1,
+    "healthy": 2
+  },
+  {
+    "utc": "2026-10-23T06:22:26.470930+00:00",
+    "desired": 3,
+    "running": 3,
+    "pending": 0,
+    "healthy": 3
+  }
+]

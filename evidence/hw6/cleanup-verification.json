@@ -1,0 +1,59 @@
+{
+  "verified_utc": "2026-10-23T09:59:13.346805+00:00",
+  "cluster": {
+    "clusters": [
+      {
+        "clusterArn": "arn:aws:ecs:us-west-2:723699460077:cluster/cs6650-hw5-product-cluster",
+        "clusterName": "cs6650-hw5-product-cluster",
+        "status": "INACTIVE",
+        "registeredContainerInstancesCount": 0,
+        "runningTasksCount": 0,
+        "pendingTasksCount": 0,
+        "activeServicesCount": 0,
+        "statistics": [],
+        "tags": [],
+        "settings": [],
+        "capacityProviders": [],
+        "defaultCapacityProviderStrategy": []
+      }
+    ],
+    "failures": []
+  },
+  "load_balancer": {
+    "error": "aws: [ERROR]: An error occurred (LoadBalancerNotFound) when calling the DescribeLoadBalancers operation: Load balancers '[cs6650-hw5-product-alb]' not found"
+  },
+  "target_group": {
+    "error": "aws: [ERROR]: An error occurred (TargetGroupNotFound) when calling the DescribeTargetGroups operation: One or more target groups not found"
+  },
+  "security_groups": {
+    "SecurityGroups": []
+  },
+  "scaling_targets": {
+    "ScalableTargets": []
+  },
+  "ecr_image": {
+    "imageDetails": [
+      {
+        "registryId": "723699460077",
+        "repositoryName": "cs6650-hw5-product",
+        "imageDigest": "sha256:dc080b469e9cbba47288975192df05bbd5f04ea53d719d710efd8ac4d3ae5bd3",
+        "imageTags": [
+          "ea9a7dd98e6875f2293bfec498539a91c0a5fa35"
+        ],
+        "imageSizeInBytes": 9744738,
+        "imagePushedAt": "2026-10-23T01:16:17.562000-04:00",
+        "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+        "artifactMediaType": "application/vnd.oci.image.config.v1+json",
+        "lastRecordedPullTime": "2026-10-23T01:16:53.783000-04:00",
+        "imageStatus": "ACTIVE"
+      }
+    ]
+  },
+  "dashboards": {
+    "DashboardEntries": []
+  },
+  "monitoring_logs": {
+    "logGroups": []
+  },
+  "running_local_containers": []
+}
